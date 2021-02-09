@@ -25,3 +25,9 @@ class TacheForm(forms.ModelForm):
     class Meta :
         model = Tache
         fields =  ['titre', 'description','deadline', 'pris','urgent', 'pris_par', 'status']
+
+class RechercheForm(forms.ModelForm):
+    recherche = forms.CharField(required = True, max_length = 80, widget = forms.Textarea(attrs= { "rows":2, "cols":50, "placeholder":'Faire une recherche de tache'})  )
+    class Meta :
+        model = Recherche
+        fields = ['recherche']

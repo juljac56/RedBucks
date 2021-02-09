@@ -46,3 +46,5 @@ class Message(models.Model):
         ordering = ['-date']
 
 
+class Recherche(models.Model):
+    recherche = models.CharField(max_length=50, null=True, blank = False)

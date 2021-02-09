@@ -12,6 +12,7 @@ from django.template import RequestContext
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 import datetime 
+from django.db.models import Q
 
 from .forms import *
 
@@ -49,6 +50,7 @@ class membre_msg (LoginRequiredMixin, generic.ListView):
 def message_form(request):
     username = request.user.username
     form_msg = MessageForm(request.POST or None)
+    form_recherche = RechercheForm(request.POST or None)
     queryset = Message.objects.all()[:20]
     tache = Tache.objects.all()
     date = datetime.date.today() - datetime.timedelta(days=7)
@@ -61,13 +63,18 @@ def message_form(request):
     perso = User.objects.get(prenom = username) #pour afficher les taches prises perso
     id = perso.id
     tache_perso = Tache.objects.filter(choix_pris_par = id)
+    if form_recherche.is_valid():
+        recherche = form_recherche.save(commit = False)
+        test =  recherche.recherche
+        tache = Tache.objects.filter( Q(titre__icontains = test)| Q(fait_par= test) )
 
-    if form_msg.is_valid():
-        new = form_msg.save(commit = False)
-        new.prenom = username
-        new.save()
-        return HttpResponseRedirect(request.path_info)
-    else:
+    if form_msg != None:
+        if form_msg.is_valid():
+            new = form_msg.save(commit = False)
+            new.prenom = username
+            new.save()
+            return HttpResponseRedirect(request.path_info)
+        else:
             print(form_msg.errors)
     context = {
         'form_msg' : form_msg,
@@ -79,6 +86,7 @@ def message_form(request):
     }
     return render(request, "./template/form.html", context)
 
+@login_required(redirect_field_name='./templates/registration/login.html')
 def test_msg(request):
     form_msg = MessageForm(request.POST or None)
     queryset = Message.objects.all()[:20]
@@ -181,6 +189,7 @@ def new_msg(request):
 
     return render(request, "./template/form2.html")
 """ 
+@login_required(redirect_field_name='./templates/registration/login.html')
 def delete_msg(request, id):
     obj  = get_object_or_404(Product, id = id)
     obj.delete()
@@ -219,6 +228,11 @@ def perso(request):
 
 
     return render(request, "./template/perso.html", context)
+
+@login_required(redirect_field_name='./templates/registration/login.html')
+
+def faq(request):
+    return render(request,'./template/faq.html')
 
 
 """

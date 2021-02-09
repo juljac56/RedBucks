@@ -21,14 +21,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '3%hk%%d3uh6=519#90gn7(vwb8oyg20osnh5+&)r6co1clk5hf'
-
+import os
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '3%hk%%d3uh6=519#90gn7(vwb8oyg20osnh5+&)r6co1clk5hf')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+"""
+ALLOWED_HOSTS = ['<your app URL without the https:// prefix>.herokuapp.com','127.0.0.1']
+# For example:
+# ALLOWED_HOSTS = ['fathomless-scrubland-30645.herokuapp.com', '127.0.0.1']
+"""
 ALLOWED_HOSTS = []
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -103,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
-LOGIN_REDIRECT_URL = '/back/membres/'
+LOGIN_REDIRECT_URL = '/back/form/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -125,3 +128,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 SESSION_SAVE_EVERY_REQUEST = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True

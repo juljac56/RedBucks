@@ -1,0 +1,46 @@
+{% extends "./base1_login.html" %}
+{% load static %}
+
+{% block title %} FAQ RedBucks{% endblock %}
+
+{% block content %}
+<div class="page_membre">
+
+<div class="alert explication_membre alert-danger" role="alert">
+    Voici la faq du site pour comprendre comment le site fonctionne si ce n'est pas clair
+  </div>
+
+  <div class="faq">
+  <h3> A quoi sert ce site ? </h3>
+  <p> Ce site sert de vitrine (pour la partie accessible à tous) et la partie à accèes restreint est faite pour aider les membres redbucks à s'organiser pour faire tourner l'asso .
+  </p>
+
+ <h3> Comment utiliser la barre de recherche ?</h3>
+ <p> Le fonctionnement de la barre de recherche (triant les tâches affichées) n'est pas encore optimale. Les recherches sont faites selon le titre et la personne qui a publié la tache. 
+     <br> Pour annuler une recherche, refaire une recherche (appuyer sur "OK") en laissant le champ de recherche vide 
+ </p>
+
+ <h3> Sécurité ?</h3>
+ <p> Ce site est construit et maintenu par des amateurs => il n'est donc pas fiable d'un point de vue sécurité. <br>
+    Ne pas écrire et publier des informations personnelles qu'on juge confidentielles ou sensibles. Ne pas utiliser le même mot de passe que celui de son compte bancaire !
+
+    <h3> L'agenda ?</h3>
+ <p> L'agenda affiché sur la page principale est celui de l'association. Normalement (si ça marche), tout le monde peut apporter des modifications au calendrier (c'est un google calendar) 
+ </p>
+ 
+ <h3> Les couleurs pour les taches  ?</h3>
+ <p> Il y a différentes couleurs rensignant l'état de la tâche: 
+     <ul>
+         <li> Vert : la tâche est terminée</li>
+         <li> Rouge : la tâche est URGENTE</li>
+         <li> Orange : la tâche est affectée à personne </li>
+         <li> Jaune : la tâche n'est pas terminée mais affectée à un membre des RedBucks</li>
+     </ul> 
+ </p>
+
+ <h3> Tache : diférence entre le bouton bleu "prendre la tache" et le champ "prise par" dans le form ?</h3>
+
+<p> En cliquant sur le bouton "prendre la tache", on s'engage personnellement à faire la tâche (on peut se retirer) <br>
+On remplit le champ "prise par" quand c'est une entité spécifique qui a pris la tâche telle que pôle communication, bureau, groupe 1...</p>
+</div>
+{%endblock%}

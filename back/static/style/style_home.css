@@ -370,3 +370,10 @@ align-items:center;}
 .btn-primary{margin:3px;}
 .retour_membre{width:20%;
 margin:10px;}
+
+.agenda{position: relative;
+left: 50px;
+margin-top:50px;
+margin-bottom:50px;}
+
+.faq{padding : 50px;}
