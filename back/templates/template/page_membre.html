@@ -1,0 +1,35 @@
+{% extends "./base1_login.html" %}
+{% load static %}
+
+
+{% block content %}
+
+
+<h1>Minichat</h1>
+  {% if msg_list %}
+  <ul>
+    {% for msg in msg_list %}
+      <li>
+        {{ msg.prenom}}  <br> 
+        {{msg.msg}}
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>pas de message dans le minichat</p>
+  {% endif %} 
+
+
+  <p> Ceci est un test</p>
+<form method="POST">
+    {% csrf_token %}
+    {{form_msg.as_p}}
+ <input type ='submit' value = 'Save'>
+
+</form>
+
+
+
+
+
+{% endblock %}

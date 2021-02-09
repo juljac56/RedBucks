@@ -1,0 +1,60 @@
+{% extends "./base1_login.html" %}
+{% load static %}
+
+
+{% block content %}
+
+
+<form action="." method="post">{% csrf_token %}
+    <label for="titre">Titre de la description :  </label>
+    <input id="titre" type="text" name="titre" value="{{ tache.titre }}">
+    
+<br>
+    <label for="description">Description :</label>
+    <textarea id="description" name="description" rows="4" cols="50">{{ tache.description }}
+</textarea>
+    <br>
+    <label for="deadline">Deadline</label>
+    <p>{{tache.deadline}}</p> <p>{{tache.pris_par}}</p>
+    <input id="deadline" type="date" name="deadline" value="{{tache.deadline|date:"Y-m-d" }}">
+    <br>
+    <label for="pris">Pris</label>
+    {% if tache.pris %}
+    <input id="pris" type="checkbox" name="pris" checked>
+    {%else%}
+    <input id="pris" type="checkbox" name="pris">
+    {%endif%}
+    <br>
+    <label for="urgent">Urgent</label>
+    {% if tache.urgent %}
+    <input id="urgent" type="checkbox" name="urgent" checked >
+    {%else%}
+    <input id="urgent" type="checkbox" name="urgent" >
+    {%endif%}
+    <br>
+    <label for="pris_par">Pris par : </label>
+    <p>{{ tache.pris_par }}</p>
+    <input id="pris_par" type="text" name="pris_par" value="{{ tache.pris_par }}">
+    <br>
+
+    <label for="status">Status :</label>
+
+<select name="status" id="status">
+
+{%for k in status %}
+{%if k == tache.status %}
+<option value= "{{k}}" selected>{{k}}</option>
+{%else%}
+<option value= "{{k}}">{{k}}</option>
+{%endif%}
+{%endfor%}
+</select>
+
+    <br>
+
+    <input type="submit" value="OK">
+
+
+
+</form>
+{%endblock%}

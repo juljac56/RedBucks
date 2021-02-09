@@ -1,0 +1,372 @@
+body {
+    display:flex;
+    flex-direction:column;
+    height:100%;
+    }
+
+/*Contenu des pages  */
+
+@media only screen and ( max-width: 600px) {  
+                                                   /* Pour ecrans de petites tailles  */
+.contenu{position:relative;                         /* Contenu gere l'affichage des blocs des pages : images,footer... */               
+top:300px;
+background-color: white;
+display:flex;
+flex-direction:column;
+height:100%;}
+
+}
+
+.contenu_partenaire{position:relative;  /* Classe contenu adaptée à la page partenaires.html */
+    top:50px;
+    background-color: white;
+    display:flex;
+    flex-direction:column;
+    height:100%;}
+
+.mot_prez{width: 80%;
+margin-left: auto;
+margin-right: auto;}
+
+.signature{float:right;}   /* Signature du mot du prez  */
+
+@media only screen and ( min-width: 600px) { /* Pour ecrans de grandes tailles  */
+.contenu{position:relative;
+    top:600px;
+    background-color: white;
+    display:flex;
+    flex-direction:column;
+    height:100%;}
+}
+
+
+
+/* partie presentation */
+.photo_presentation{  /* Photo en home page */
+width: 30%;
+min-width:300px;
+margin: 20px;
+border-radius: 10px;}
+
+.carousel{margin-left:auto;   /* Images qui défilent en home page */
+margin-right:auto;
+position:relative;
+}
+
+.slide{border-radius:10px;   /* Dimensionnement des images qui defilent du carousel */
+width:60%;
+min-width:300px;
+text-align:center;}
+
+.photo_membre{
+    width: 10%;
+    margin: 20px;
+    border-radius: 10px;}
+
+.photo_chant{
+    width: 10%;
+    margin: 20px;
+    border-radius: 10px;}
+
+.presentation{display:flex; /* Mis en page photo et texte des presentations sur les différentes pages  */
+    flex-wrap: wrap;
+    justify-content:center;
+    position: relative;
+    bottom:30px;
+    align-items: center;}
+
+.presentation_pole{display:flex; /* Pour page equipe, si on veut présenter un pole, on aligne plrs photos a cote d'un texte */
+    flex-wrap: nowrap;
+    justify-content:center;
+    position: relative;
+    align-items: center;}
+
+.texte_presentation{width: 50%;
+    min-width: 400px;
+    padding:30px;
+    margin:30px;}
+
+.texte_presentation_droite{width: 50%;  /* Placer le texte a droite de la photo, avec les bonnes bordures */
+    min-width: 400px;
+    border-left: solid red;
+    border-bottom: solid red;
+    padding:30px;
+    margin:30px;}
+
+.texte_presentation_gauche{width: 50%;
+    min-width: 400px;
+    border-right: solid red;
+    border-bottom: solid red;
+    padding:30px;
+    margin:30px;}
+
+.texte_presentation_dessous{width:50%;
+    min-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    border-left: solid red;
+    border-right: solid red;
+    border-bottom: solid red;
+    padding:30px;}
+
+
+
+hr {                              /* Séparation utilisé sur toutes nos pages */
+    height: 2px;
+    border: 0px;
+    color: #cf5821;
+    background-color:#D22409;
+    width:80%;
+    text-align:center;
+    z-index:0;
+    } 
+
+h2{font-size:27px;                  /*Titre de spéaration de nos parties sur chaque pages */
+        color:#ca2c17;
+        border:none;
+        background-color:white;
+        margin-left:auto;
+        margin-right:auto;
+        width: 16%;
+        min-width:200px;
+        position:relative;
+        z-index:0;
+    bottom:35px;}
+
+/* Footer*/
+
+footer{background-color: #1E1F22;
+    width:100%;
+    display:flex;
+flex-direction:column;
+height:100%;}
+
+
+.logo_footer{display:flex; /*Logo des réseaux sociaux */
+    justify-content:space-around;
+    margin: auto;
+    width:15%;
+    position:relative;
+    bottom:40px;
+    }
+
+.ultra_footer{width:40%;}  /*Logo ultra red bucks du footer */
+
+
+
+.rehausser{             /*Rehausse titre "rejoignez nous" du footer */
+    position:relative;
+    bottom:16px;}
+
+.lien_footer{display:flex;  /* Liens footer pour accédre aux différentes pages*/
+    justify-content:space-around;
+    margin: auto;
+    width:40%;
+    position:relative;
+    bottom:30px;
+    left:17px;
+}
+
+#lien_footer{color:white; /* regarder l'id des liens */
+margin:3px;}
+
+.droits{         /* Phrase sur les droits tout en bas de la page */
+    color:gray;
+    font-size: small;
+}
+
+.fb{width:55%;  /* positionnement logo fb du footer */
+position:relative;
+bottom:10%;}
+
+.insta{width:55%;}
+.mail{width:40%;}
+
+.img_footer{min-width:20px;}
+.img_footer:hover{width:65%;}  /* faire grossir liens réseaux sociaux  */
+
+
+/* Fin Footer*/
+
+/* Section Remerciement sur toutes les pages sauf celle partenaire.html*/
+
+.sponsor{display:inline;
+    flex-wrap:nowrap;
+    padding:2%;
+    z-index:0;
+    background-color: #ffffff;}
+
+.pics{width:20%;
+border-radius: 10px;}
+.bds{width:15%;}
+.cs{width:40%;}
+
+/* Fin Remerciement*/
+
+
+/* En-tête */
+
+    /* Navbar*/
+    .nav {width:100%;
+        z-index:2;
+        display:flex;
+        flex-wrap:nowrap;
+        position: fixed; 
+        padding-right:30px ;/* les 3 lignes permettent de fixer la bar visible en haut */
+        top: 0;
+        width: 100%;
+        background-color: #1E1F22;
+        align-items: center;
+        
+
+    }
+
+        .links {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+          
+            .links li {
+                float: left;
+            }
+
+            .links li.active {  /* Lien accueil en haut a gauche */
+                background-color: rgb(216, 6,33);
+              }
+            
+                .links li a {
+                    display: block;
+                    color: white;
+                    text-align: center;
+                    padding: 14px 16px;
+                    text-decoration: none;
+                }
+                
+                    .links li a:hover {
+                        background-color: #111;
+                    }
+
+                    .logo_nav{
+                        width:25px;
+                        margin:5px;
+                    }
+
+                    .fb_nav{width: 31px;}   /* logo fb de la nav bar uniquement */
+                    
+                    .lien_head{
+                        align-items: center;
+                    }
+                    
+                    
+                    
+@media only screen and ( min-width: 635px) {  /* Pour eviter le height:500px, qui oblige a scroller sur phone */
+                        .img_accueil {
+                            position:fixed;
+                            width:100%; 
+                            z-index:-2;
+                           
+                        }}
+                    
+
+ @media only screen and ( max-width: 635px) {
+.img_accueil {
+    position:fixed;
+    width:100%; 
+    z-index:-2;
+    height:500px;
+}}
+
+
+/* Fin en-tête */
+
+/* Page membre */
+
+.bandeau {background-color:#1E1F22;
+color: white;}
+
+.explication_membre{width:90%;
+    margin:auto;
+    margin-bottom:30px;
+    margin-top:30px;
+}
+
+@media only screen and ( max-width: 580px) {  
+    /* Pour ecrans de petites tailles  */
+    .page_membre{
+    position:relative;
+    top:80px;
+    }}
+
+.lecture{width:35%;
+    height: 500px;
+    border: 1px solid red;
+    padding : 20px;
+    margin: 10px;
+    overflow-y : auto;
+    
+
+}
+
+.bandeau_msg{background-color:grey;
+text-align:center;
+
+color:white;
+margin-top: 20px;
+margin-bottom:0px;}
+
+.text_msg{
+    background-color:rgb(248, 200, 200);
+    border:hidden;
+    padding:5px;
+    margin:5px;
+    margin-top:0px;
+    word-wrap: break-word;
+}
+
+.send{background-color:red;
+border-radius:10px;
+width:100px;
+position:relative;
+left:100px;
+bottom:25px;}
+
+.form_msg{}
+.btn_msg{position: relative;
+top:-20px;}
+
+.conteneur{display:flex;
+    flex-wrap:nowrap;
+    justify-content: space-around;}
+
+.tache_liste{width:40%;
+    height : 500px;
+    overflow-y : auto;}
+
+.etat_tache_urgent{ background-color:#d6220b;}
+.etat_tache{background-color: orange;}
+.tache_prise{background-color:yellow;}
+.tache_finie{background-color: rgb(38, 243, 11);}
+
+.affichage_tache {
+    width:45%;
+    height : 500px;
+    overflow-y : auto;
+    display:flex;
+    flex-wrap:wrap;
+    }
+
+.card_tache{width : 90%;
+margin : 20px;}
+
+.urgent{text-align:right;}
+
+.conteneur_debut{display:flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+align-items:center;}
+
+.btn-primary{margin:3px;}
+.retour_membre{width:20%;
+margin:10px;}

@@ -1,0 +1,47 @@
+{% extends "./base1.html" %}
+{% load static %}
+
+
+{% block content %}
+
+  <img src="{%static 'style/img/photo_equipe.jpg' %}" class="img_accueil" alt="image">
+
+
+
+  <div class="contenu">
+    <br>
+    <hr>
+    <div class="text-center">
+
+      <h2 class="titre_partie">L'EQUIPE</h2>
+
+      <div class="presentation">
+        <img src="{%static 'style/img/tournoi foot bnp pics/bnp2.jpg' %}" class="photo_membre">
+        <p class="texte_presentation_droite">
+          (texte à changer) description du membre et taille de photo plus petite a prendre
+        </p>
+
+        <p class="texte_presentation_gauche">
+          (texte à changer) description du membre
+        </p>
+        <img src="{%static 'style/img/tournoi foot bnp pics/bnp2.jpg' %}" class="photo_membre">
+
+        <div class="presentation_pole">
+          <img src="{%static 'style/img/tournoi foot bnp pics/bnp2.jpg' %}" class="photo_membre">
+          <img src="{%static 'style/img/tournoi foot bnp pics/bnp2.jpg' %}" class="photo_membre">
+          <p class="texte_presentation_droite">
+            (texte à changer) description des membres du pole et taille de photo plus petite a prendre
+          </p>
+
+        </div>
+
+
+
+      </div>
+
+
+
+
+      {% include "./sponsors.html" %}
+
+     {% endblock %}

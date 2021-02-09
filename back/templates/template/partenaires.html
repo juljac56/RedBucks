@@ -1,0 +1,36 @@
+{% extends "./base1.html" %}
+{% load static %}
+
+
+{% block content %}
+
+  <div class="contenu_partenaire">
+    <br>
+    <hr>
+    <div class="text-center">
+
+      <h2 class="titre_partie">REMERCIEMENTS</h2>
+
+      <div class="presentation">
+        <img src="{%static 'style/img/sponsors/sponsors_pics.PNG' %}" class="photo_presentation">
+        <p class="texte_presentation_droite">
+          (texte à changer) Merci à pics ! <br>
+          description
+        </p>
+
+        <p class="texte_presentation_gauche">
+          (texte à changer) Merci au BDS !<br>
+          description
+        </p>
+        <img src="{%static 'style/img/sponsors/sponsors_bds.png' %}" class="photo_presentation">
+
+        <img src="{%static 'style/img/sponsors/sponsors_cs.png' %}" class="photo_presentation">
+        <p class="texte_presentation_droite">
+          (texte à changer) Merci à cs ! <br>
+          description
+        </p>
+
+      </div>
+
+
+      {% endblock %}

@@ -1,0 +1,81 @@
+{% extends "./base0.html" %}
+{% load static %}
+{% block page %}
+
+<nav class="nav">    <!-- barre de navigation -->
+    <ul class="links">
+      <li class="active"><a href="{% url 'index' %}">Accueil</a></li>
+      <li><a href="{% url 'evenements' %}">Evénements</a></li>
+      <li><a href="{% url 'chants' %}">Chants</a></li>
+      <li><a href="{% url 'partenaires' %}">Partenaires</a></li>
+      <li><a href="{% url 'equipe' %}">Equipe</a></li>
+      <li><a href="{% url 'form' %}">Espace membre</a></li>
+      <li><a href="{% url 'logout'%}?next={{request.path}}" class="btn btn-danger">Se déconnecter</a></li>
+      {% if user.is_authenticated %}
+      <li><a href="{% url 'perso' %}" class="btn btn-danger">Espace perso</a></li>
+      {% else %}
+      <li><a href="{% url 'perso' %}" class="btn btn-danger">Espace perso</a></li>
+      {% endif %}
+
+    </ul>
+    <div class="lien_head">
+      <a href="https://www.facebook.com/redbucksultras/" > <img src="{% static 'style/img/fb2.png' %}"  class="logo_nav fb_nav rounded-circle"> </a>
+      <a href="#"> <img src="{%static 'style/img/logo_insta_dark2.jpg' %}" class="logo_nav rounded-circle"></a>
+      <a href="mailto:name@email.com"><img src="{%static 'style/img/mail.jpg' %}"
+          class="logo_nav rounded-circle rounded-circle" target="_blank"></a>
+    </div>
+  </nav>
+
+
+  <div class="contenu_partenaire">
+ 
+  <div class = "bandeau">
+  {% if user.is_authenticated %}
+  Connecté(e) en tant que : {{ user.get_username }}<br>
+  {% else %}
+  <a href="{% url 'login'%}?next={{request.path}}">Login</a>
+  {% endif %} 
+</div>
+<br>
+{% block content %}{% endblock %}
+
+
+
+
+
+  <footer>
+    <div class="text-center">
+      <img src="{% static 'style/img/logo_ultra.PNG' %}" class="ultra_footer">
+      <div class="rehausser">
+        <hr>
+        <br />
+
+        <h2 class="titre_footer" style="bottom:60px; background-color:#1E1F22;">Rejoignez-nous</h2>
+
+      </div>
+      <div class="logo_footer">
+        <a href="https://www.facebook.com/redbucksultras/" > <img src="{% static 'style/img/fb2.png' %}"
+            class="img_footer fb rounded-circle"> </a>
+        <a href="#"> <img src="{% static 'style/img/logo_insta_dark2.jpg' %}" class="img_footer insta rounded-circle"></a>
+        <a href="mailto:name@email.com" target="_blank"><img src="{% static 'style/img/mail.jpg' %}"
+            class="img_footer mail rounded-circle rounded-circle"></a>
+      </div>
+
+      <div class="lien_footer text-center">
+        <a id="lien_footer" href="{% url 'index' %}">Accueil</a>
+        <a id="lien_footer" href="{% url 'equipe' %}">L'équipe </a>
+        <a id="lien_footer" href="{% url 'evenements' %}">Evenements</a>
+        <a id="lien_footer" href="{% url 'partenaires' %}">Partenaires</a>
+      </div>
+      <div class="droits">
+        <p>Copyright © 2020-2021 Association Red Bucks. Tous droits réservés. Pas d'utilisation commerciale</p>
+      </div>
+
+    </div>
+
+  </footer>
+
+</div>
+</div>
+
+{% endblock %}

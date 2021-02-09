@@ -1,0 +1,49 @@
+{% extends "./base1_login.html" %}
+{% load static %}
+
+
+{% block content %}
+
+
+
+<form action="." method="post">{% csrf_token %}
+    <label for="titre">Titre de la description :  </label>
+    <input id="titre" type="text" name="titre" >
+    
+<br>
+    <label for="description">Description :</label>
+    <textarea id="description" name="description" rows="4" cols="50">
+</textarea>
+    <br>
+    <label for="deadline">Deadline</label>
+    <input id="deadline" type="date" name="deadline" >
+    <br>
+    <label for="pris">Pris</label>
+    <input id="pris" type="checkbox" name="pris" >
+    <br>
+    <label for="urgent">Urgent</label>
+    <input id="urgent" type="checkbox" name="urgent" >
+    <br>
+    <label for="pris_par">Pris par : </label>
+    <input id="pris_par" type="text" name="pris_par">
+    <br>
+
+    <label for="status">Status :</label>
+
+<select name="status" id="status">
+
+{%for k in status %}
+<option value= "{{k}}">{{k}}</option>
+{%endfor%}
+</select>
+
+    <br>
+
+    <input type="submit" value="OK">
+
+
+
+</form>
+
+
+{%endblock%}

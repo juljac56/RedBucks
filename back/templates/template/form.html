@@ -1,0 +1,141 @@
+{% extends "./base1_login.html" %}
+{% load static %}
+
+
+{% block content %}
+
+
+ 
+<div class="page_membre">
+<div class ="conteneur_debut">
+
+  <div class="alert explication_membre alert-danger" role="alert">
+    Pour coordonner l'asso, publiez vos messages et remarques, et gérez vos tâches <br>
+    Les tâches se suppriment automatiquement quand leur deadline est dépassée d'une semaine !
+  </div>
+  
+<div class="zone_msg">
+<form class="form_msg" method="POST">
+    {% csrf_token %}
+    {{form_msg.as_p}}
+ <input class="btn btn-primary btn_msg " type ='submit' value = 'Envoie'>
+
+</form>
+
+</div>
+<div class ="btn_nv_tache">
+  <a href="{% url 'new_tache' %} " class="btn btn-primary">Créer une nouvelle tâche</a>
+</div>
+</div>
+<div class="conteneur">
+<br>
+<div class = "lecture">
+{% for msg in msg_list %}
+<p class="bandeau_msg">{{msg.prenom}} a publié le {{msg.date}}</p> 
+<p class="text_msg"> {{msg.msg}}</p>
+{% if msg.prenom == prenom %} 
+<a href="{% url 'supprime_msg' id=msg.id %} " class="btn btn-primary">Supprimer</a>
+{%endif%}
+{%endfor%}
+</div> 
+<!--
+<br>
+<div class="tache_liste">
+{% for tache in tache_list %}
+{% if tache.urgent and not tache.pris_par %}
+<p class="bandeau_msg" style="background-color:crimson">{{tache.fait_par}} a publié : {{tache.titre}}</p> 
+
+{%else%}
+<p> Pris par : {{tache.pris_par}}</p>
+<p class="bandeau_msg" style="background-color:rgb(52, 54, 190)">{{tache.fait_par}} a publié : {{tache.titre}}</p> 
+{%endif%}
+<p class="text_msg"> Deadline: {{tache.deadline}} et 
+{%endfor%}
+</div>
+</div>
+
+-->
+<div class='affichage_tache'>
+  
+{% for tache in tache_list %}
+<div class="card card_tache">
+  
+      {%if tache.urgent and not tache.pris_par %}
+      <h5 class="card-header etat_tache_urgent"> URGENT : {{tache.fait_par}} a publié : {{tache.titre}}  </h5>
+        {%elif tache.pris_par or tache.choix_pris_par.all %}
+        <h5 class="card-header tache_prise">{{tache.fait_par}} a publié : {{tache.titre}}</h5>
+        {%elif tache.status == "Terminée" %}
+        <h5 class="card-header tache_finie">{{tache.fait_par}} a publié : {{tache.titre}}</h5>
+        {%else%}
+        <h5 class="card-header etat_tache">{{tache.fait_par}} a publié : {{tache.titre}}</h5>
+          {%endif%}
+
+          <div class="card-body">
+            <h5 class="card-title">Deadline : {{tache.deadline}}</h5>
+         
+        {% if tache.pris_par or tache.choix_pris_par.all %}
+         Tache prise par : <em >{{tache.pris_par}} </em>,
+        {% for prenom in tache.choix_pris_par.all %}{{ prenom }},{% endfor %}
+        {%else%}
+         Tache à prendre !
+         {%endif%}
+         &emsp;Status : {{tache.status}}
+         <br>
+         {% if tache in tache_perso_list %}
+          <p>Tu t'es engagé(e) pour cette tache</p>
+          {%endif%}
+         <a href='{{tache.get_absolute_url}}' class="btn btn-primary">Modifier</a>
+         {% if tache.fait_par == prenom %} 
+         <a href="{% url 'supprime_tache' id=tache.id %} " class="btn btn-primary">Supprimer</a>
+         {%endif%}
+         {% if tache in tache_perso_list %}
+         <a href= "{% url 'plus_prendre_tache' id=tache.id %}" class="btn btn-primary">Ne plus faire la tache</a>
+         {%else%}
+         <a href= "{% url 'prendre_tache' id=tache.id %}" class="btn btn-primary">Prendre la tache</a>
+         {%endif%}
+        
+<!-- Button trigger modal -->
+
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    Détail
+  </button>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Détail de la tâche</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          
+        <h3>Titre :</h3> <p>{{tache.titre}}</p>
+        <h6>Publié par :</h6> <p>{{tache.fait_par}}</p>
+        <h6>Deadline :</h6> <p>{{tache.deadline}}</p>
+        <h6>Description :</h6> <p>{{tache.description}}</p>
+        <h6>Pris par :</h6> <p>{{tache.pris_par}}</p>
+        <h6>Status :</h6> <p>{{tache.status}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+</div>   
+       
+        {%endfor%}
+      </div>
+ 
+</div>
+
+<iframe src="https://calendar.google.com/calendar/embed?src=redbuckscs00%40gmail.com&ctz=Europe%2FParis" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+<a target="_blank" href="https://calendar.google.com/event?action=TEMPLATE&amp;tmeid=MDByZWFhYjNjM2h0cmU1czBxbjVmaTJjOXEgcmVkYnVja3NjczAwQG0&amp;tmsrc=redbuckscs00%40gmail.com"><img border="0" src="https://www.google.com/calendar/images/ext/gc_button1_fr.gif"></a>
+{%endblock %}

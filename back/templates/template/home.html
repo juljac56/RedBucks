@@ -1,0 +1,96 @@
+{% extends "./base1.html" %}
+{% load static %}
+
+
+{% block content %}
+  <img src="{% static 'style/img/logo_ancienred.jpg' %}" class="img_accueil" alt="image">
+
+
+
+  <div class="contenu">
+    <br>
+    <hr>
+    <div class="text-center">
+
+      <h2 class="titre_partie">RED BUCKS</h2>
+
+      <div class="presentation">
+        <img src="{% static 'style/img/photo_presentation.jpg' %}" class="photo_presentation">
+        <p class="texte_presentation">
+          (texte à changer) Bienvenue sur le site de l'association Red Bucks ! <br>
+          C'est l'asso des supporters de CentraleSupélec, si tu veux nous rejoindre tu es sur le bon le site ! Regarde
+          quels sont les prochains events Red Bucks et viens mettre le feu au bord du terrain avec nous, tu es le
+          bienvenue !!
+        </p>
+
+      </div>
+      <video src="{% static 'style/video/video_degeu.mp4' %}" controls auto style="width:60%;" poster="{% static 'style/img/projet logo.PNG' %}"
+        class="video_presentation" alt="image"></video>
+        <hr>
+        <br>
+        
+        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{% static 'style/img/tournoi foot bnp pics/bnp3.jpg' %}" class="slide" alt="slide">
+            <div class="carousel-caption d-none d-md-block">
+            </div>
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'style/img/tournoi foot bnp pics/bnp5.jpg' %}" class="slide" alt="slide">
+              <div class="carousel-caption d-none d-md-block">
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'style/img/tournoi foot bnp pics/bnp4.jpg' %}" class="slide" alt="slide">
+              <div class="carousel-caption d-none d-md-block">
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+        
+        
+      
+        <p class="texte_presentation_dessous">
+          (texte à changer mettre compte a rebours ?  Décrire les prochains event mettre RDV) Participe au prochains events Red Bucks en cliquant sur le bouton ci-dessous <br>
+           <br>
+           <button type="button" onclick="window.location.href = './evenements.html';" class="btn btn-danger"> Evènements RED BUCKS</button>
+        </p>
+        <br>
+
+
+        <div class="alert alert-danger mot_prez" role="alert">
+          <p> Titre à mettre genre message du President (faut il sauter des lignes entre les blocs de texte?) </p>
+          <hr>
+          <p class="mb-0">Sportives, sportifs, électro-centraliennes et électro-centraliens de Saclay, <br>
+
+            Que serait le sport à CentraleSupélec sans ses plus fervents supporters ? A vrai dire pas grand-chose. Si notre école se démarque des autres par l’ambiance qui y règne, c’est grâce aux différentes associations qui nourrissent notre cohésion. Les RedBucks contribuent à cette vie sportive et étudiante folle en y jouant une place éminente. <br>
+            Notre rôle premier est d’enflammer les évènements sportifs de CS. Supporter nos équipes et nos valeurs est indispensable à notre école de renom. Parce que nous sommes fiers d’appartenir à un même clan, de participer au prestige de CentraleSupélec, nous arborons nos couleurs haut et fort. <br>
+
+            Notre objectif est de faire rayonner CentraleSupelec par le sport, souder les supporters, et faire vibrer les amoureux du sport. Ainsi grâce aux évènements du BDS, aux championnats entre écoles et à des collaborations avec d’autres assos du campus, nous organisons la vie du supporter électro-centralien. <br>
+
+            Si tu es prêt à faire des étincelles en tribune et à enflammer les stades et gymnases ou que tu souhaites porter fièrement des outfits aux couleurs de CS, notre asso te rendra grand service. <br>
+            Je t’invite à poursuivre ta navigation sur notre site, <br>tu y trouveras de nombreuses informations concernant nos services et évènements.
+            <span class="signature"> Signé (à remplir) </span> 
+            
+            </p>
+        </div>
+        {% include "./sponsors.html" %}
+
+      </div>
+    
+
+     {% endblock %}

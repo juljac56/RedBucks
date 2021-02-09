@@ -1,0 +1,46 @@
+{% extends "./base1.html" %}
+{% load static %}
+
+
+{% block content %}
+
+  <img src="{%static 'style/img/tournoi foot bnp pics/bnp7.jpg' %}" class="img_accueil" alt="image">
+
+
+
+  <div class="contenu">
+    <br>
+
+    <div class="text-center">
+      <hr>
+      <h2 class="titre_partie">LES EVENEMENTS A VENIR</h2>
+
+      <div class="presentation">
+        <img src="{%static 'style/img/tournoi foot bnp pics/bnp3.jpg' %}" class="photo_presentation">
+        <p class="texte_presentation">
+          (texte à changer) Décrire les prochains event mettre RDV <br>
+          description de l'evenement (tournoi BNP) mettre compte a rebours ?
+        </p>
+
+      </div>
+      <hr>
+      <h2 class="titre_partie">NOS MEILLEURS MOMENTS</h2>
+
+      <div class="presentation">
+        <img src="{%static 'style/img/tournoi foot bnp pics/bnp1.jpg' %}" class="photo_presentation">
+        <p class="texte_presentation">
+          (texte à changer)Premier évenement des red bucks relancé <br>
+          description de l'evenement (tournoi BNP)
+        </p>
+
+      </div>
+
+
+      {% include "./sponsors.html" %}
+
+
+
+
+
+
+      {% endblock %}
