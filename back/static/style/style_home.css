@@ -336,6 +336,10 @@ bottom:25px;}
 .btn_msg{position: relative;
 top:-20px;}
 
+.form_tache { margin:20px;
+
+}
+
 .conteneur{display:flex;
     flex-wrap:nowrap;
     justify-content: space-around;}
@@ -374,6 +378,15 @@ margin:10px;}
 .agenda{position: relative;
 left: 50px;
 margin-top:50px;
-margin-bottom:50px;}
+margin-bottom:50px;
+width:200px;}
 
 .faq{padding : 50px;}
+
+.aide_membre{display:flex;
+flex-wrap:nowrap;
+justify-content:space-around;}
+
+.explication_droite, .explication_gauche {margin:5px;}
+
+.pages_login{margin:20px;}

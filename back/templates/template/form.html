@@ -28,14 +28,23 @@
   <a href="{% url 'new_tache' %} " class="btn btn-primary">Créer une nouvelle tâche</a>
 </div>
 
-
-<form action="{% url 'form' %}" method="post">{% csrf_token %}
-  <label for="recherche">trouver tache  </label>
-  <input id="recherche" type="text" name="recherche" >
-  <input type="submit" value="OK">
-</form>
-
 </div>
+<div class= "aide_membre">
+  <div class="explication_gauche  alert alert-danger">
+     <p>A gauche s'affichent les remarques faites par tous les membres de l'asso </p>
+  </div>
+  <div class="explication_droite ">
+    <div class=" alert alert-danger">
+  <p>A droite s'affichent les tâches à faire ou en cours pour l'asso</p>
+</div>
+  <form action="{% url 'form' %}" method="post">{% csrf_token %}
+    <label for="recherche">rechercher une tache :  </label>
+    <input id="recherche" type="text" name="recherche" >
+    <input type="submit" value="OK">
+  </form>
+</div>
+</div>
+
 <div class="conteneur">
 <br>
 <div class = "lecture">

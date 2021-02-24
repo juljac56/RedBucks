@@ -5,9 +5,9 @@
 {% block content %}
 
 
-
+<div class="form_tache">
 <form action="." method="post">{% csrf_token %}
-    <label for="titre">Titre de la description :  </label>
+    <label for="titre">Titre de la tache :  </label>
     <input id="titre" type="text" name="titre" >
     
 <br>
@@ -15,11 +15,13 @@
     <textarea id="description" name="description" rows="4" cols="50">
 </textarea>
     <br>
-    <label for="deadline">Deadline</label>
+    <label for="deadline">Deadline :</label>
     <input id="deadline" type="date" name="deadline" >
-    <br>
+    <!-- 
+        <br>
     <label for="pris">Pris</label>
     <input id="pris" type="checkbox" name="pris" >
+     -->
     <br>
     <label for="urgent">Urgent</label>
     <input id="urgent" type="checkbox" name="urgent" >
@@ -39,11 +41,11 @@
 
     <br>
 
-    <input type="submit" value="OK">
+    <input type="submit" value="Créer la tâche">
 
 
 
 </form>
-
+</div>
 
 {%endblock%}
