@@ -19,11 +19,11 @@ Ce site a deux utilités principales:
 
 Cette partie est faite pour présenter l'association, avec les pages : accueil, l'équipe, les chants, les partenaires et les évènements. Ces pages sont simplement codées en HTML/CSS et javascript.
 <br>
-<img src="./img_site/acc.png" alt="accueil" width="25%"/>
+<img src="./img_site/acc.png" alt="accueil" width="40%"/>
 
 ### Mini ERP
-<img src="./img_site/tache.png" alt="accueil" width="25%"/>
-Cette partie est accessible en s'authentifiant (pour l'instant, username : perso2 et password: verification34). Une base de donnée reliée à cette partie permet à l'utilisateur de créer/supprimer des tâches, de prendre en charge une tache ou simplement consulter les tâches de l'association. Les tâches dont leur deadline est dépassée d'une semaine est automatiquement supprimée.
+<img src="./img_site/tache.png" alt="accueil" width="40%"/>
+Cette partie est accessible en s'authentifiant (pour l'instant, **username : perso2 et password: verification34**). Une base de donnée reliée à cette partie permet à l'utilisateur de créer/supprimer des tâches, de prendre en charge une tache ou simplement consulter les tâches de l'association. Les tâches dont leur deadline est dépassée d'une semaine est automatiquement supprimée.
 <br><br>
  Un système de jeu de couleur est mis en place pour afficher les taches avec une couleur en lien avec le degré d'urgence de la tâche.
 <br><br>
@@ -33,7 +33,7 @@ Enfin, un google calendar est intégrée à la page membre pour que les évnème
 <br><br>
 Une page FAQ est disponible pour répondre aux questions récurrentes posées au sujet de l'utilisation du site.
 <br>
-<img src="./img_site/faq.png" alt="accueil" width="25%"/>
+<img src="./img_site/faq.png" alt="accueil" width="40%"/>
 <br>
 Une page perso est disponible pour que chaque membre puisse voir toutes les taches pour lesquelles il s'est engagé. 
 
