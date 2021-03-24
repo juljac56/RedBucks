@@ -18,6 +18,7 @@ from .forms import *
 
 # Create your views here.
 
+#Ici, on accède aux pages statiques
 def index(request):
     return render(request,'./template/home.html')
 
@@ -32,7 +33,7 @@ def evenements(request):
 
 def partenaires(request):
     return render(request,'./template/partenaires.html')
-
+# Fin des pages statiques
 """
 class membre_msg (LoginRequiredMixin, generic.ListView):
     model = Message
@@ -46,16 +47,16 @@ class membre_msg (LoginRequiredMixin, generic.ListView):
         context['en plus'] = 'context en plus test'
         return context
 """
-@login_required(redirect_field_name='./templates/registration/login.html')
+@login_required(redirect_field_name='./templates/registration/login.html')         #permet de rediriger vers la page d authentifiacation si l'user n est pas authentifié 
 def message_form(request):
     username = request.user.username
     form_msg = MessageForm(request.POST or None)
-    form_recherche = RechercheForm(request.POST or None)
+    form_recherche = RechercheForm(request.POST or None)    # Barre de recherche des tâches 
     queryset = Message.objects.all()[:20]
     tache = Tache.objects.all()
     date = datetime.date.today() - datetime.timedelta(days=7)
     liste_tache = Tache.objects.all()
-    for l in liste_tache:
+    for l in liste_tache:     # On supprime les taches dépassées de plus de 7 jours
         if l.deadline != None:
             if l.deadline < date:
                 l.delete()
@@ -66,9 +67,9 @@ def message_form(request):
     if form_recherche.is_valid():
         recherche = form_recherche.save(commit = False)
         test =  recherche.recherche
-        tache = Tache.objects.filter( Q(titre__icontains = test)| Q(fait_par= test) )
+        tache = Tache.objects.filter( Q(titre__icontains = test)| Q(fait_par= test) )    #On recherche selon le titre et qui a publié la tache
 
-    if form_msg != None:
+    if form_msg != None:     #afficher un nouveau messsage sur la page 
         if form_msg.is_valid():
             new = form_msg.save(commit = False)
             new.prenom = username
@@ -86,6 +87,7 @@ def message_form(request):
     }
     return render(request, "./template/form.html", context)
 
+"""
 @login_required(redirect_field_name='./templates/registration/login.html')
 def test_msg(request):
     form_msg = MessageForm(request.POST or None)
@@ -101,7 +103,7 @@ def test_msg(request):
         
     }
     return render(request, "./template/test_msg.html", context)
-
+"""
 
 @login_required(redirect_field_name='./templates/registration/login.html')
 @csrf_exempt
@@ -132,7 +134,7 @@ def tache(request, id):
 
 @login_required(redirect_field_name='./templates/registration/login.html')
 @csrf_exempt
-def new_tache(request):
+def new_tache(request):  #vérifie que le formulaire de creation de tache est correcte
     
     form_tache = TacheForm(request.POST or None)
     
@@ -144,13 +146,13 @@ def new_tache(request):
     else:
         print(form_tache.errors)
     context= { "form_tache": form_tache,
-    "status" : ["A faire", "En cours", "Terminée","Autre"]}
+    "status" : ["A faire", "En cours", "Terminée","Autre"]}  #Permet de proposer les options de status d'avancement de la tâche dans le form 
 
 
     return render(request, "./template/new_tache.html", context)
 
 @login_required(redirect_field_name='./templates/registration/login.html')
-def prendre_tache(request, id):
+def prendre_tache(request, id):  #Pour s'engager à faire une tâche
         tache = Tache.objects.get(id =id)
         prenom = request.user.username
         perso = User.objects.get(prenom = prenom)
@@ -159,7 +161,7 @@ def prendre_tache(request, id):
         return redirect('../../form/')
 
 @login_required(redirect_field_name='./templates/registration/login.html')
-def plus_prendre_tache(request, id):
+def plus_prendre_tache(request, id):  # Permet de se dé s'engager d'une tâche prise au départ
         tache = Tache.objects.get(id =id)
         prenom = request.user.username
         perso = User.objects.get(prenom = prenom)
@@ -167,8 +169,9 @@ def plus_prendre_tache(request, id):
         tache.choix_pris_par.remove(id)
 
         return redirect('../../form/')
+
 @login_required(redirect_field_name='./templates/registration/login.html')
-def plus_prendre_tache_perso(request, id):
+def plus_prendre_tache_perso(request, id):  # Comme la fonction précédente, mais action réalisée depuis la page personnelle de user
         tache = Tache.objects.get(id =id)
         prenom = request.user.username
         perso = User.objects.get(prenom = prenom)
@@ -217,7 +220,7 @@ def supprime_tache_perso(request, id):
     return redirect('../../perso/')
 
 @login_required(redirect_field_name='./templates/registration/login.html')
-def perso(request):
+def perso(request):  #On affiche dans la page personnelle de user, les tâches pour lesquelles il s'est engagé
     prenom = request.user.username
     perso = User.objects.get(prenom = prenom)
     id = perso.id
@@ -231,7 +234,7 @@ def perso(request):
 
 @login_required(redirect_field_name='./templates/registration/login.html')
 
-def faq(request):
+def faq(request):  #Page statique FAQ
     return render(request,'./template/faq.html')
 
 
