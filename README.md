@@ -23,7 +23,7 @@ Cette partie est faite pour présenter l'association, avec les pages : accueil, 
 
 ### Mini ERP
 <img src="./img_site/tache.png" alt="accueil" width="40%"/>
-Cette partie est accessible en s'authentifiant (pour l'instant, **username : perso2 et password: verification34**). Une base de donnée reliée à cette partie permet à l'utilisateur de créer/supprimer des tâches, de prendre en charge une tache ou simplement consulter les tâches de l'association. Les tâches dont leur deadline est dépassée d'une semaine est automatiquement supprimée.
+Cette partie est accessible en s'authentifiant (pour l'instant, <em>username : perso2 et password: verification34</em>). Une base de donnée reliée à cette partie permet à l'utilisateur de créer/supprimer des tâches, de prendre en charge une tache ou simplement consulter les tâches de l'association. Les tâches dont leur deadline est dépassée d'une semaine est automatiquement supprimée.
 <br><br>
  Un système de jeu de couleur est mis en place pour afficher les taches avec une couleur en lien avec le degré d'urgence de la tâche.
 <br><br>
