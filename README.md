@@ -15,7 +15,7 @@ Ce site a deux utilités principales:
 1/ Faire office de site vitrine pour promouvoir la nouvelle association des suporters au sein du campus. <br>
 2/ Faire office de mini ERP pour que les membres de l'association puissent s'organiser
 
-Le site a été codé sous Django
+Le site a été codé sous Django.
 
 ### Site vitrine
 
