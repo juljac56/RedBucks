@@ -5,7 +5,9 @@ Par Julien Jacquot
 L'association RedBucks est l'association des supporters de CentraleSupélec. Après deux ans de silence, l'association est de retour pour mettre l'ambiance autour des terrains.
 
 &nbsp;
+### Description du gitlab
 
+Les différents programmes python structurant le site des RedBucks se trouvent dans le dossier "Back"
 
 
 ### Description du site web
